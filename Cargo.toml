@@ -1,9 +1,20 @@
 [package]
-name = "musical-lamp"
+name = "musical_lamp"
 version = "0.1.0"
 authors = ["jwl <james.warren.leung@pm.me>"]
 edition = "2018"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+path = "src/main.rs"
+name = "musical_lamp"
 
 [dependencies]
+actix-web = "4.0.0-beta.3"
+
+[dev-dependencies]
+actix-rt = "2"
+reqwest = "0.11"
+tokio = "1"
