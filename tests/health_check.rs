@@ -22,7 +22,6 @@ async fn health_check_works() {
     assert_eq!(Some(0), response.content_length());
 }
 
-
 fn spawn_app() {
     let server = musical_lamp::run().expect("Failed to bind address");
 
