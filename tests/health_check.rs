@@ -1,18 +1,16 @@
 //! tests/health_check.rs
 
+use std::net::TcpListener;
+
 #[actix_rt::test]
 async fn health_check_works() {
     // Arrange/Setup
-    spawn_app();
-
-    // Bring in reqwest to perform HTTP requests against our app
-    // Use `cargo add reqwest --dev --vers 0.11` to add under
-    // `[dev-dependencies]` in Cargo.toml
+    let address = spawn_app();
     let client = reqwest::Client::new();
 
     // Act
     let response = client
-        .get("http://127.0.0.1:8000/health_check")
+        .get(&format!("{}/health_check", &address))
         .send()
         .await
         .expect("Failed to execute request.");
@@ -22,9 +20,17 @@ async fn health_check_works() {
     assert_eq!(Some(0), response.content_length());
 }
 
-fn spawn_app() {
-    let server = musical_lamp::run().expect("Failed to bind address");
+fn spawn_app() -> String {
+    let listener = TcpListener::bind("127.0.0.1:0")
+        .expect("Failed to bind random port");
+
+    // Retrieve port assigned to us by OS
+    let port = listener.local_addr().unwrap().port();
+    let server = musical_lamp::run(listener).expect("Failed to bind address");
 
     // Launch server as a background task
     let _ = tokio::spawn(server);
+
+    // Return application address to the caller
+    format!("http://127.0.0.1:{}", port)
 }
