@@ -13,6 +13,7 @@ name = "musical_lamp"
 
 [dependencies]
 actix-web = "4.0.0-beta.3"
+serde = { version = "1", features = ["derive"] }
 
 [dev-dependencies]
 actix-rt = "2"
