@@ -16,3 +16,7 @@ Based off of `zero2prod` from https://zero2prod.com/ and https://gill.net.in/pos
 
 ### DB
 * To launch Postgres container manually: `./scripts/init_db.sh`
+
+### Config
+* use `configuration.yaml`
+* `.env` at project is needed for unit tests
