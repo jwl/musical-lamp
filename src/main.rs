@@ -2,7 +2,7 @@
 
 use std::net::TcpListener;
 
-use musical_lamp::run;
+use musical_lamp::startup::run;
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
