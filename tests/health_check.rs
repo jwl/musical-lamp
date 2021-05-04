@@ -2,7 +2,7 @@
 
 use musical_lamp::configuration::{get_configuration, DatabaseSettings};
 use musical_lamp::startup::run;
-use sqlx::{PgPool, Connection, Executor, PgConnection};
+use sqlx::{Connection, Executor, PgConnection, PgPool};
 use std::net::TcpListener;
 use uuid::Uuid;
 
@@ -30,8 +30,7 @@ async fn health_check_works() {
 }
 
 async fn spawn_app() -> TestApp {
-    let listener = TcpListener::bind("127.0.0.1:0")
-        .expect("Failed to bind random port");
+    let listener = TcpListener::bind("127.0.0.1:0").expect("Failed to bind random port");
 
     // Retrieve port assigned to us by OS
     let port = listener.local_addr().unwrap().port();
@@ -42,8 +41,7 @@ async fn spawn_app() -> TestApp {
 
     let connection_pool = configure_database(&configuration.database).await;
 
-    let server = run(listener, connection_pool.clone())
-        .expect("Failed to bind to address");
+    let server = run(listener, connection_pool.clone()).expect("Failed to bind to address");
 
     // Launch server as a background task
     let _ = tokio::spawn(server);
