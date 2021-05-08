@@ -1,10 +1,10 @@
 //! src/main.rs
 
+use env_logger::Env;
 use musical_lamp::configuration::get_configuration;
 use musical_lamp::startup::run;
 use sqlx::PgPool;
 use std::net::TcpListener;
-use env_logger::Env;
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
