@@ -20,3 +20,6 @@ Based off of `zero2prod` from https://zero2prod.com/ and https://gill.net.in/pos
 ### Config
 * use `configuration.yaml`
 * `.env` at project is needed for unit tests
+
+### Remove unneeded dependencies
+* `cargo +nightly udeps`
