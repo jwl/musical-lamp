@@ -9,7 +9,7 @@ use std::net::TcpListener;
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
     // Setup logging
-    let subscriber = get_subscriber("musical_lamp".into(), "info".into());
+    let subscriber = get_subscriber("musical_lamp".into(), "info".into(), std::io::stdout);
     init_subscriber(subscriber);
 
     // Load config

@@ -23,3 +23,7 @@ Based off of `zero2prod` from https://zero2prod.com/ and https://gill.net.in/pos
 
 ### Remove unneeded dependencies
 * `cargo +nightly udeps`
+
+
+### Test with all logs
+* `TEST_LOG=true cargo test health_check_works | bunyan`
