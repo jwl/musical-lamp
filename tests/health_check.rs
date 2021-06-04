@@ -20,7 +20,6 @@ static TRACING: Lazy<()> = Lazy::new(|| {
         let subscriber = get_subscriber(subscriber_name, default_filter_level, std::io::sink);
         init_subscriber(subscriber);
     }
-
 });
 
 pub struct TestApp {
