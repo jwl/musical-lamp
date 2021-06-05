@@ -27,3 +27,7 @@ Based off of `zero2prod` from https://zero2prod.com/ and https://gill.net.in/pos
 
 ### Test with all logs
 * `TEST_LOG=true cargo test health_check_works | bunyan`
+
+
+### Build Docker image
+* `docker build --tag musical_lamp --file Dockerfile .`
