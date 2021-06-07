@@ -18,7 +18,8 @@ Based off of `zero2prod` from https://zero2prod.com/ and https://gill.net.in/pos
 * To launch Postgres container manually: `./scripts/init_db.sh`
 
 ### Config
-* use `configuration.yaml`
+* use `configuration/base.yaml`, `configuration/<environment>.yaml`
+  * Note that on Linux, database address should be set to `localhost`. For MacOS and Windows, it should be set to `host.docker.internal` if you want to use the dockerized version
 * `.env` at project is needed for unit tests
 
 ### Remove unneeded dependencies
@@ -31,3 +32,7 @@ Based off of `zero2prod` from https://zero2prod.com/ and https://gill.net.in/pos
 
 ### Build Docker image
 * `docker build --tag musical_lamp --file Dockerfile .`
+
+
+### Run Docker image
+* `docker run -p 8000:8000 musical_lamp`
