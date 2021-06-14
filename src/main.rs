@@ -3,7 +3,7 @@
 use musical_lamp::configuration::get_configuration;
 use musical_lamp::startup::run;
 use musical_lamp::telemetry::{get_subscriber, init_subscriber};
-use sqlx::PgPool;
+use sqlx::postgres::PgPoolOptions;
 use std::net::TcpListener;
 
 #[actix_web::main]
