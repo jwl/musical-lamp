@@ -1,9 +1,11 @@
 application:
   port: 8000
+  host: 0.0.0.0
 database:
-  #host: "localhost" # use this when docker host is linux
-  host: "host.docker.internal" # use this when docker host is not linux (ie. developing on MacOS)
+  host: "localhost" # use this when docker host is linux or when outside of docker
+  # host: "host.docker.internal" # use this when docker host is not linux (ie. developing on MacOS)
   port: 5432
   username: "postgres"
   password: "password"
   database_name: "newsletter"
+  require_ssl: false

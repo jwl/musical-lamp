@@ -1,4 +1,8 @@
 #! spec.yaml
+
+# Name is shortened because Digital Ocean docs specify that names must conform to the following regex:
+# ^[a-z][a-z0-9-]{0,30}[a-z0-9]$
+# https://docs.digitalocean.com/products/app-platform/references/app-specification-reference/
 name: musicallamp
 # Check https://www.digitalocean.com/docs/app-platform/#regional-availability
 # for a list of all the available options.
@@ -8,7 +12,7 @@ name: musicallamp
 # `sfo` stands for San Francisco (USA)
 region: sfo
 services:
-  - name: musical_lamp
+  - name: musicallamp
     dockerfile_path: Dockerfile
     source_dir: .
     github:

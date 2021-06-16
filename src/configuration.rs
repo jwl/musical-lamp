@@ -1,6 +1,5 @@
 use std::convert::{TryFrom, TryInto};
 
-
 #[derive(serde::Deserialize)]
 pub struct Settings {
     pub database: DatabaseSettings,
@@ -39,7 +38,7 @@ pub fn get_configuration() -> Result<Settings, config::ConfigError> {
 
     // Layer on environment-specific values
     settings.merge(
-        config::File::from(configuration_directory.join(environment.as_str())).required(true)
+        config::File::from(configuration_directory.join(environment.as_str())).required(true),
     )?;
 
     // Add in settings from env variables
@@ -72,8 +71,8 @@ impl TryFrom<String> for Environment {
             "local" => Ok(Self::Local),
             "production" => Ok(Self::Production),
             other => Err(format!(
-                    "{} is not a supported environment. Use either `local` or `production`.",
-                    other
+                "{} is not a supported environment. Use either `local` or `production`.",
+                other
             )),
         }
     }
