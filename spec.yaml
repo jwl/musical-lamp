@@ -16,7 +16,8 @@ services:
     dockerfile_path: Dockerfile
     source_dir: .
     github:
-      branch: main
+      #branch: main
+      branch: feat-reduce_build_times_with_chef
       deploy_on_push: true
       repo: jwl/musical_lamp
     health_check:

@@ -1,4 +1,4 @@
-### musical-lamp
+## musical-lamp
 Based off of `zero2prod` from https://zero2prod.com/ and https://gill.net.in/posts/auth-microservice-rust-actix-web1.0-diesel-complete-tutorial/
 
 ### Setup
@@ -36,3 +36,11 @@ Based off of `zero2prod` from https://zero2prod.com/ and https://gill.net.in/pos
 
 ### Run Docker image
 * `docker run -p 8000:8000 musical_lamp`
+
+## Sample API tests
+### Hit the health_check endpoint
+* `curl http://127.0.0.1:8000/health_check`
+
+### Post a new subscriber
+* `curl --request POST --data 'name=rice&email=anne_rice%40gmail.com' 127.0.0.1:8000/subscriptions --verbose`
+* Note that the name and email must not already exist in DB or else this will throw an error
